@@ -1,6 +1,4 @@
-ÿþ
-@echo off
-cls
+@echo off
 set ^"|find "::">nul 2>&1 && goto :no || goto :yes
 :no
 chcp 65001 > nul
