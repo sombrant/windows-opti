@@ -3,6 +3,7 @@ $isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIde
 if (-not $isAdmin) {
     chcp 65001 > $null
     Write-Host "`nPour pouvoir utiliser l'utilitaire, vous devez être un administrateur exécutant une session de console."
+    Write-Host "`n"
     chcp 850 > $null
 } else {
     set powershell=%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe
