@@ -2,7 +2,8 @@
 set ^"|find "::">nul 2>&1 && goto :no || goto :yes
 :no
 chcp 65001 > nul
-echo.&echo "Pour pouvoir utiliser l'utilitaire, vous devez être un administrateur&echo exécutant une session de console."
+echo Pour pouvoir utiliser l'utilitaire, vous devez être un administrateur
+echo exécutant une session de console.
 pause
 chcp 850 > nul
 goto :EOF
