@@ -1,8 +1,8 @@
 @echo off
 
->nul 2>&1 net session || (
-    echo Pour pouvoir utiliser l'utilitaire, vous devez être un administrateur
-    echo exécutant une session de console.
+powershell -Command "if (-Not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) { exit 1 }"
+if %errorlevel% neq 0 (
+    echo Pour pouvoir utiliser l'utilitaire, vous devez être un administrateur exécutant une session de console.
     pause
     exit
 )
