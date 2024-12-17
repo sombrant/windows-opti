@@ -1,7 +1,7 @@
 $isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 
 if (-not $isAdmin) {
-    Write-Host "Ce script doit être exécuté avec les privilèges administrateur. Relancez-le en tant qu'administrateur." -ForegroundColor Red
+    Write-Host "Ce script doit etre execute avec les privileges administrateur. Relancez-le en tant qu'administrateur."
     pause
     exit 
 } else {
